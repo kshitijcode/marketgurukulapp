@@ -6,7 +6,7 @@ The app also displays quotes and trend for over a period of time**.
 
 The default Django sqlite3  configured as the database for this project. 
 
-Django follows the MVT template. The same has been used.
+Django follows the MVT pattern. The same has been used along with few services as well.
 
 
 **STEPS TO RUN THE PROJECT :** 
