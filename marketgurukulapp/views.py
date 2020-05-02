@@ -20,7 +20,7 @@ class QuoteTodayView(View):
 
     def post(self, request):
         """
-        :param request: Request PayLoad
+        :param request: Request PayLoad for Getting Quotes for a stock
         :return:
         """
         form = UserInputForm(request.POST)
