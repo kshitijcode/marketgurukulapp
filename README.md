@@ -1,0 +1,2 @@
+# markegurukulapp
+Stock Recommendation App
