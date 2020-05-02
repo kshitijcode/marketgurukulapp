@@ -8,5 +8,3 @@ urlpatterns = [
     path('', views.home, name='home'),
     url(r'^recommend', views.QuoteTodayView.as_view(), name='recommend')
 ]
-
-urlpatterns += staticfiles_urlpatterns()

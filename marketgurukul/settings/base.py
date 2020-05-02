@@ -24,7 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "..", 'marketgurukulapp', 'templates')
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', False)
+DEBUG = os.getenv('DJANGO_DEBUG', True)
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1').split(',')
 
@@ -120,8 +120,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "..", "marketgurukulapp", 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, "..", 'staticfiles')
-print(STATIC_ROOT)
-ALLOWED_HOSTS = ['*']
 
 LOGGING_CONFIG = None
 LOGLEVEL = os.getenv('DJANGO_LOGLEVEL', 'info').upper()

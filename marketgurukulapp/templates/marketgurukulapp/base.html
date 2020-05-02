@@ -19,8 +19,9 @@
 <body>
 <div class="wrap">
 
-    <form action="{% url 'recommend' %}" class="search">
-        <input type="text" class="searchTerm" name="search" placeholder="Enter Stock Symbol ..">
+    <form action="{% url 'recommend' %}" class="search" method="post">
+        {% csrf_token %}
+        <input type="text" class="searchTerm" name="symbol" placeholder="Enter Stock Symbol ..">
         <button type="submit" class="searchButton">
             <i class="fa fa-search"></i>
         </button>
