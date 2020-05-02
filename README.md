@@ -22,7 +22,7 @@ Django follows the MVT pattern. The same has been used along with few services a
 # STEPS TO RUN THE PROJECT
 
 ```
-git clone git@github.com:kshitijcode/markegurukulapp.git`
+git clone git@github.com:kshitijcode/markegurukulapp.git
 docker build -t market-gurukul:v1 .
 docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-   gurukul:v1
 ```
@@ -56,6 +56,8 @@ That's it ! The web app would be up and running on localhost:8000
 > 8. We have models,services,forms all are under a single files each, but if the project is complex , it can be structure into individiual packages of services/models/forms etc.
 > 9. Secret Keys are injected through environment variables , but in production we can have a secret server(AWS,Azure,Vault) and fetch the secrets.
 > 10. SESSION_COOKIE_SECURE  and CSRF_COOKIE_SECURE is enabled to prevent CSRF Attacks.
+> 11. The alpine docker image was failing at various build steps due to AlphaVantage Python API. So in advent of time , I have NOT used the alpine image but used a normal python image.
+> 12. We could also used decorators for authentication/other tasks but the simplicity of this API didnt require much of it.  
 
 
 
