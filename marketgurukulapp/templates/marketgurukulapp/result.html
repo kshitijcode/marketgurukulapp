@@ -1,0 +1,62 @@
+{% extends 'marketgurukulapp/base.html' %}
+{% block result %}
+
+<div class="result">
+
+    <table class="striped centered">
+        <thead>
+        <tr>
+            <th scope="col">SYMBOL</th>
+            <th scope="col">LIVE</th>
+            <th scope="col">LOW</th>
+            <th scope="col">HIGH</th>
+            <th scope="col">CHANGE</th>
+            <th scope="col">RECOMMENDATION</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td> {{ quote.symbol }}</td>
+            <td> {{ quote.current }}</td>
+            <td> {{ quote.low }}</td>
+            <td> {{ quote.high }}</td>
+            <td> {{ quote.trend }}</td>
+            <td> {{ quote.recommendation }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="container" style="width: 100%;height:200px">
+    <canvas id="pie-chart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+
+    var config = {
+      type: 'line',
+      data: {
+        datasets: [{
+          data: {{ prices |safe }},
+          borderColor: "#3e95cd",
+          fill: false,
+          label: 'DAILY'
+        }],
+        labels: {{ days |safe }}
+      },
+      options: {
+        display: true,
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+
+</div>
+{% endblock %}
