@@ -15,11 +15,9 @@ Django follows the MVT pattern. The same has been used along with few services a
 
 # STEPS TO RUN THE PROJECT
 
-```git clone git@github.com:kshitijcode/markegurukulapp.git
-
-   docker build -t market-gurukul:v1 .
-   
-   docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-   gurukul:v1 ```
+`git clone git@github.com:kshitijcode/markegurukulapp.git`
+`docker build -t market-gurukul:v1 .`  
+`docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-   gurukul:v1 `
 
 
 
