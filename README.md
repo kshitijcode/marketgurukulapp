@@ -12,5 +12,9 @@ The default Django sqlite3  configured as the database for this project.
 STEPS TO RUN THE PROJECT : 
 
 `git clone git@github.com:kshitijcode/markegurukulapp.git
+
+ docker build -t market-gurukul:v1 .   
+ docker run -e DJANGO_SECRET_KEY="(i^2#*goq_uj4aio#ndy5h@83225g#a" market-gurukul:v1 sh -c "python manage.py makemigrations && python manage.py migrate"
+    
 `
 
