@@ -7,6 +7,8 @@ from alpha_vantage.techindicators import TechIndicators
 from alpha_vantage.timeseries import TimeSeries
 from yahoo_fin import stock_info as si
 
+from .constants import TREND
+
 logger = logging.getLogger(__name__)
 
 
@@ -19,6 +21,14 @@ class AlphaVantageService:
         self.data, _ = self.time_series.get_daily(symbol=symbol)
 
     def get_ema(self, window, symbol, interval, duration):
+        """
+
+        :param window: Slinding window for Moving Average operations
+        :param symbol: Symbol of Stock
+        :param interval: Interval for consecutive data points eg. daily,weekly,monthly
+        :param duration: how far behind the data needs to be evaluated for( value is in days)
+        :return: return the moving average series for each data point
+        """
         try:
             symbol_ema, _ = self.technical_indicator.get_ema(symbol=symbol, time_period=window, interval=interval)
             sliced_ema = dict(itertools.islice(symbol_ema.items(), duration))
@@ -32,6 +42,11 @@ class AlphaVantageService:
             raise Exception("ERROREMA")
 
     def get_daily_trends(self, duration):
+        """
+        Returns price and daily trend for a duration
+        :param duration: the number of days for which the data needs to be sent.
+        :return:
+        """
         try:
             sliced_days = dict(itertools.islice(self.data.items(), duration))
             prices = []
@@ -44,24 +59,49 @@ class AlphaVantageService:
             raise Exception("ERRORDAILYTRENDS")
 
     def get_current(self):
+        """
+
+        :return:
+        """
         return round(si.get_live_price(self.symbol), 2)
 
     def get_high(self):
+        """
+
+        :return:
+        """
         return self.get_last_day_data()['2. high']
 
     def get_low(self):
+        """
+
+        :return:
+        """
         return self.get_last_day_data()['3. low']
 
     def get_trend(self):
+        """
+
+        :return:
+        """
         if float(self.get_current()) >= float(self.get_last_day_data()['4. close']):
-            return "POSITIVE"
+            return TREND.POSITIVE
         else:
-            return "NEGATIVE"
+            return TREND.NEGATIVE
 
     def get_volume(self):
+        """
+
+        :return:
+        """
         return int(self.get_last_day_data()['5. volume'])
 
     def get_average_volume(self, volume_period):
+        """
+\
+        :param volume_period:
+        :return:
+        """
         dates = list(self.data.keys())[0:volume_period]
         volumes = []
         for date in dates:
@@ -69,7 +109,16 @@ class AlphaVantageService:
         return float(np.average(volumes))
 
     def get_day_data(self, day):
+        """
+
+        :param day:
+        :return:
+        """
         return self.data[day]
 
     def get_last_day_data(self):
+        """
+
+        :return:
+        """
         return self.data[list(self.data.keys())[0]]

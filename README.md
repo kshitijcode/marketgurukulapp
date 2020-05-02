@@ -1,4 +1,4 @@
-# markegurukulapp
+# marketgurukulapp
 Stock Recommendation App
 
 **This a Django based app which helps in recommendation for stocks based on the EMA cross over strategy.
@@ -11,12 +11,11 @@ Django follows the MVT template. The same has been used.
 
 **STEPS TO RUN THE PROJECT :** 
 
-`git clone git@github.com:kshitijcode/markegurukulapp.git
+`git clone git@github.com:kshitijcode/markegurukulapp.git`
 
- docker build -t market-gurukul:v1 . 
+ `docker build -t market-gurukul:v1 . `
    
- docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-gurukul:v1  
-`
+ `docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-gurukul:v1 `
 
 That's it ! The web app would be up and running on localhost:8000
 
@@ -24,6 +23,10 @@ That's it ! The web app would be up and running on localhost:8000
 **TESTS**
 
 `python3 manage.py test `
+
+
+
+
 
 
 **ASSMUPTIONS AND KNOWNS:**
