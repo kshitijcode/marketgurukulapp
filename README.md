@@ -1,10 +1,13 @@
 # marketgurukulapp
 Stock Recommendation App
 
+
 **This a Django based app which helps in recommendation for stocks based on the EMA cross over strategy.
 The app also displays quotes and trend for over a period of time**.
 
+
 The default Django sqlite3  configured as the database for this project. 
+
 
 Django follows the MVT pattern. The same has been used along with few services as well.
 
@@ -14,14 +17,19 @@ Django follows the MVT pattern. The same has been used along with few services a
 
 `git clone git@github.com:kshitijcode/markegurukulapp.git`
 
- `docker build -t market-gurukul:v1 . `
+`docker build -t market-gurukul:v1 . `
    
- `docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-gurukul:v1 `
+`docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market- gurukul:v1 `
+
+
 
 That's it ! The web app would be up and running on localhost:8000
 
 
+
 **TESTS**
+
+
 
 `python3 manage.py test `
 
@@ -29,9 +37,8 @@ That's it ! The web app would be up and running on localhost:8000
 
 
 
-
-
 **ASSMUPTIONS AND KNOWNS:**
+
 
 
 1. I have considered the EMA CrossOver Strategy to detect trend for generating buy/sell recommendations.
