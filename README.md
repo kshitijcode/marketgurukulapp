@@ -13,22 +13,20 @@ Django follows the MVT pattern. The same has been used along with few services a
 
 
 
-**STEPS TO RUN THE PROJECT :** 
+# STEPS TO RUN THE PROJECT
 
-`git clone git@github.com:kshitijcode/markegurukulapp.git`
+```git clone git@github.com:kshitijcode/markegurukulapp.git
 
-`docker build -t market-gurukul:v1 . `
+   docker build -t market-gurukul:v1 .
    
-`docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market- gurukul:v1 `
+   docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YOUR_ALPHAVANTAGE_KEY -p 80:8000 market-   gurukul:v1 ```
 
 
 
 That's it ! The web app would be up and running on localhost:8000
 
 
-
-**TESTS**
-
+# TESTS
 
 
 `python3 manage.py test `
@@ -36,8 +34,7 @@ That's it ! The web app would be up and running on localhost:8000
 
 
 
-
-**ASSMUPTIONS AND KNOWNS:**
+# ASSMUPTIONS AND KNOWNS
 
 
 
