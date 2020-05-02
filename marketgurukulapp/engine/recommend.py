@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 from ..alphavantage import AlphaVantageService
-from ..constants import RECOMMENDATION
+from ..constants import RECOMMENDATION,LOOKBACK_FOR_CROSSOVER
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +23,7 @@ class Recommend(object):
         This method returns buy and sell signals based on EMA Cross Over Strategy.
         :return:
         """
+        logger.info(f"Fetching Recommendations for stock {self.quote.symbol}")
         # Fetch slower and faster EMA From AlphaVantageAPI
         shorter_sma = AlphaVantageService(self.quote.symbol).get_ema(window=self.fast_window, symbol=self.quote.symbol,
                                                                      duration=self.duration,
@@ -43,7 +44,7 @@ class Recommend(object):
         volume_confirmation = True if self.quote.volume >= self.quote.average_volume else False
 
         # Check for cross over in last 30 days
-        for value in self.signals['positions'][-30:]:
+        for value in self.signals['positions'][LOOKBACK_FOR_CROSSOVER:]:
             if value >= 1 and volume_confirmation:
                 self.ema_signal = RECOMMENDATION.BUY
                 break

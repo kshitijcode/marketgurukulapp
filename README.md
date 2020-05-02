@@ -9,6 +9,7 @@ The default Django sqlite3  configured as the database for this project.
 Django follows the MVT template. The same has been used.
 
 
+
 **STEPS TO RUN THE PROJECT :** 
 
 `git clone git@github.com:kshitijcode/markegurukulapp.git`
@@ -29,7 +30,9 @@ That's it ! The web app would be up and running on localhost:8000
 
 
 
+
 **ASSMUPTIONS AND KNOWNS:**
+
 
 1. I have considered the EMA CrossOver Strategy to detect trend for generating buy/sell recommendations.
 2. The period of trend is considered last Closing. So if stock price is more than last closing price , it shows trend as POSITIVE.

@@ -2,6 +2,10 @@ from .alphavantage import AlphaVantageService
 from .models import Stocks
 from .constants import VOLUME_PERIOD
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class QuoteService(object):
 
@@ -14,6 +18,7 @@ class QuoteService(object):
         VOLUME_PERIOD: Number of Days the Volume needs to averaged out to.
         :return: Returns the Stocks Model Object with the populated fields
         """
+        logger.info("Fetching Quotes")
         high = self.avs.get_high()
         low = self.avs.get_low()
         current = self.avs.get_current()
@@ -30,4 +35,5 @@ class QuoteService(object):
         :param duration: number of days for which the trend is needed
         :return: daily and prices lists
         """
+        logger.info("Fetching Trends")
         return self.avs.get_daily_trends(duration=duration)
