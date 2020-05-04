@@ -48,7 +48,6 @@ DJANGO_LOGLEVEL = Controls Log Level
 
 
 
-
 > 1. I have considered the EMA CrossOver Strategy for generating buy/sell recommendations.
 > 2. For displaying then trend the period of trend is considered last Closing. So if stock price is more than last closing price , it shows trend as POSITIVE.
 > 3. I have used the AlphaVantage API Pythonic Wrapper to do things in pythonic way .
