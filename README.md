@@ -29,7 +29,7 @@ docker run -e DJANGO_SECRET_KEY=YOUR_DJANGO_SECRET -e ALPHAVANTAGE_SECRET_KEY=YO
 
 
 
-That's it ! The web app would be up and running on localhost:8000
+That's it ! The web app would be up and running on localhost:80
 
 
 # TESTS
